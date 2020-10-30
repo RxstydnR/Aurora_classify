@@ -8,7 +8,8 @@ This code for classifying auroral images using a deep learning model, but can be
 The code is to make Image and label dataset as npy format.<br>
 This makes loading image dataset faster when an experiment is conducted, but not necessaery.
 
-As a default, a folder which has image dataset should be like the structure below.
+As a default, a folder which has image dataset should be like the structure below.<br>
+The dataset folder has each class folder, and also each of them contains the image data.
 
 ```bash
 SampleDataset
@@ -23,30 +24,21 @@ SampleDataset
 └── class5
     └── 5.jpg
 ```
-Data - X - Aurora
-                    - 000001.jpg
-                    - 000002.jpg
-                    ...
-                - Aurora Cloud
-                - Aurora Moon
-                - Aurora Moon Cloud
-                - Cloud
-             - Y - [0,0,...4,4] 
 
-
-Included process are below, but **more will be added in the future**.
-- Masking
-- Resize
-- Mediun Blur
-- Cropping
-- Random rotation and flipping
-
-
-Run `"image_preprocess.py"`
+As a result, `data.npy` is created, its structure is like below.
 
 ```bash
-python image_preprocess.py --data_path [Image folder] --save_path [Save folder]
+data.npy
+├── X image arrays
+└── Y labels
 ```
+
+Run `"make_npydata.py"`
+
+```bash
+python make_npydata.py --data_path [Image folder] --save_path [Save folder] --img_size [image size]
+```
+
 ---
 
 ## make_movie.py
