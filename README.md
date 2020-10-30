@@ -78,7 +78,6 @@ If you don't use .npy format data, set the Image folder which has the same struc
 
 ## hsv_histgram_classifier.py
 
-[1] を参考にしたHSV色空間によるオーロラ画像と雲画像の判別を行うプログラムです。
 This program classify aurora and cloud images using **HSV color space** with reference to [1].<br>
 You cannot run this program, the only use is to refer to the methods in it.
 
