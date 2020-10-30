@@ -81,6 +81,7 @@ If you don't use .npy format data, set the Image folder which has the same struc
 This program classify aurora and cloud images using **HSV color space** with reference to [1].<br>
 You cannot run this program, the only use is to refer to the methods in it.
 
+---
 
 ## Note
 
