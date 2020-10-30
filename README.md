@@ -41,63 +41,51 @@ python make_npydata.py --data_path [Image folder] --save_path [Save folder] --im
 
 ---
 
-## make_movie.py
+## main.py
 
-**In : images** <br>
-**Out : a movie**
+This is main code for classifying auroral images using a deep learning model.
 
-This code is for create a video from multiple image data using "opencv2".
+- **`model.py`** has some kinds of deep learning model.
 
-Run `"make_movie.py"`
+- **`data.py`** has data handling methods to prepare data for training and evaluation.
 
-Note that image names should be consistent.(ex. 00001.jpg,00002.jpg) <br>
-Unless the images in the video may not line up in the correct order.
+
+Run `"main.py"`
 
 ```bash
-python make_movie.py --data_path [Image folder] --save_path [Save folder] --fps 20.0
+python main.py --data_path [Image folder] --save_path [Save folder]
 ```
+
+If you don't use .npy format data, set the Image folder which has the same structure as "SampleDataset" above. <br>
+
+You can see the details of the other arguments in the code.
 
 ---
 
-## opticalflow_image.py
+## prediction.py
 
-**In : images** <br>
-**Out : opticalflow images**
+This is for classifying auroral images using **trained** model.
 
-This code calculates the optical flow of image sequence and outputs it to image sequence.
-**Optical flow parameters have to be adjusted by your hand.**
-
-
-Run `"opticalflow_image.py"`
-
-Note that image names should be consistent.(ex. 00001.jpg,00002.jpg) <br>
-Unless the images in the video may not line up in the correct order.
+Run `"prediction.py"`
 
 ```bash
-python opticalflow_image.py --data_path [Image folder] --save_path [Save folder]
+python prediction.py --data_path [Image folder] --save_path [Save folder] --fps 20.0
 ```
 
----
-
-## opticalflow_movie.py
-
-**In : movie** <br>
-**Out : opticalflow movie**
-
-This code calculates the optical flow of the video and outputs it to the video.
-**Optical flow parameters have to be adjusted by your hand.**
+If you don't use .npy format data, set the Image folder which has the same structure as "SampleDataset" above. <br>
 
 
-Run `"opticalflow_movie.py"`
+## hsv_histgram_classifier.py
 
-```bash
-python opticalflow_movie.py --data_path [Movie path] --save_path [Save folder] --fps 20.0
-```
+[1] を参考にしたHSV色空間によるオーロラ画像と雲画像の判別を行うプログラムです。
+This program classify aurora and cloud images using **HSV color space** with reference to [1].<br>
+You cannot run this program, the only use is to refer to the methods in it.
 
 
 ## Note
 
-MP4 video sometimes fails to be save.<br>
-**.avi** format is used in these codes.
-
 **I test environments under Mac, not Windows.**
+
+## References
+
+[1] 田中孝宗, et al. "オーロラの出現・形状の予測に向けた全天オーロラ画像の自動分類への試み." 宇宙航空研究開発機構研究開発報告: 宇宙科学情報解析論文誌: 第 4 号 (2015): 127-134.
