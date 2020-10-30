@@ -74,6 +74,7 @@ python prediction.py --data_path [Image folder] --save_path [Save folder] --fps 
 
 If you don't use .npy format data, set the Image folder which has the same structure as "SampleDataset" above. <br>
 
+---
 
 ## hsv_histgram_classifier.py
 
